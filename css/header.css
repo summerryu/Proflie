@@ -1,0 +1,110 @@
+#header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  z-index: 99;
+}
+#header .center {
+  height: 130px;
+  align-items: center;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+#header .center .logo {
+  filter: invert(100%);
+}
+#header .center .logo img {
+  width: 50%;
+  height: 20%;
+}
+#header .center .gnb {
+  display: flex;
+}
+#header .center .gnb li {
+  margin: 0 20px;
+  font-size: 14px;
+}
+#header .center .gnb li a {
+  color: #e4e4e4;
+  transition: all 0.3s;
+}
+#header .center .gnb li a .one {
+  position: relative;
+  font-weight: normal;
+  color: #ff8800;
+  font-style: 12px;
+}
+#header .center .gnb li a .two {
+  position: relative;
+  font-weight: normal;
+  color: #ff8800;
+  font-style: 12px;
+}
+#header .center .gnb li a .three {
+  position: relative;
+  font-weight: normal;
+  color: #ff8800;
+  font-style: 12px;
+}
+#header .center .gnb li a .four {
+  font-style: 12px;
+  position: relative;
+  font-weight: normal;
+  color: #ff8800;
+}
+#header .center .gnb li.on a .one::before {
+  content: "";
+  top: -62%;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle, #ff8800 0%, rgb(0, 0, 0) 100%);
+  animation: lookonpage 0.4s linear infinite alternate;
+}
+#header .center .gnb li.on a .two::before {
+  content: "";
+  top: -62%;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle, #ff8800 0%, rgb(0, 0, 0) 100%);
+  animation: lookonpage 0.4s linear infinite alternate;
+}
+#header .center .gnb li.on a .three::before {
+  content: "";
+  top: -62%;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle, #ff8800 0%, rgb(0, 0, 0) 100%);
+  animation: lookonpage 0.4s linear infinite alternate;
+}
+#header .center .gnb li.on a .four::before {
+  content: "";
+  top: -62%;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle, #ff8800 0%, rgb(0, 0, 0) 100%);
+  animation: lookonpage 0.4s linear infinite alternate;
+}
+
+@keyframes lookonpage {
+  0% {
+    top: -62%;
+  }
+  100% {
+    top: -92%;
+  }
+}

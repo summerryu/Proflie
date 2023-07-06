@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer.com</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Song+Myung&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/set.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <style>
+        .swiper{ overflow:visible; }
+        .swiper-wrapper { align-items: center;}
+        .swiper-wrapper .swiper-slide { 
+            display: flex; 
+            justify-content: center;
+            width: 60%; 
+            height: 100%;
+            flex-wrap: wrap;
+            position: relative;
+            top:-60px;
+        }
+        .swiper-3d .swiper-slide-shadow-left {
+            background-image: none;
+        }
+        .swiper-3d .swiper-slide-shadow-right{
+            background-image: none;
+        }
+        .swiper-wrapper .swiper-slide .click_ikon{
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            top:-60px;
+            right:430px;
+            transform: rotate(250deg);
+        }
+        .swiper-wrapper .swiper-slide .click_ikon img{
+            width: 100%;
+            height: 100%;
+            filter: opacity(0.7) drop-shadow(0 0 0 #00ffff);
+        }
+        .swiper-wrapper .swiper-slide .click_text{
+            position: absolute;
+            top:-40px;
+            right:400px;
+            color:#fff;
+            font-size: 14px;
+            transform: rotate(350deg);
+        }
+        .swiper-wrapper .swiper-slide .btn{
+            position:absolute;
+            top:-30px;
+            right:40%;
+            display: flex;
+            z-index: 18;
+            
+        }
+        .swiper-wrapper .swiper-slide .btn li a {
+            display: block;
+            margin-left: 8px;
+            width: 20px;
+            height: 30px;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .swiper-wrapper .swiper-slide .btn li.change a{
+            background-color: #ff8800;
+        }
+        .swiper-wrapper .swiper-slide .btn li a::after{
+            background: url("/img/btn_before.png");
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            transform: rotate(225deg);
+            top:-14px;
+        }
+        .swiper-wrapper .swiper-slide img { 
+            width: 50%; 
+            height: 408px;
+            border-radius: 25px;
+        }
+        .swiper-wrapper .swiper-slide .textbox {
+            border-radius: 25px;
+            margin-left: 10px;
+            width: 40%; 
+            height: 408px;
+            color:#fff;
+            background-color: #3b3b3b;  
+            position: relative;
+            z-index: 17;
+        }
+        .swiper-wrapper .swiper-slide .textbox .text_list{
+            display: none;
+        }
+        .swiper-wrapper .swiper-slide .textbox .text_list.change{
+            display: block;
+        }
+        
+        .swiper-wrapper .swiper-slide .textbox h1{
+            margin: 20px;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .swiper-wrapper .swiper-slide .textbox .detail {
+            margin: 20px;
+            line-height: 27px;
+            font-weight: 300;
+            font-size: 14px;
+        }
+        .swiper-wrapper .swiper-slide .textbox .detail span{
+            color:#ff8800;
+            font-weight: 400;
+        }
+        .swiper-wrapper .swiper-slide .textbox p{
+            margin: 20px;
+            font-size: 14px;
+            line-height: 25px;
+            font-weight: 300;
+        }
+        .swiper-wrapper .swiper-slide .textbox p span{
+            color:#ff8800;
+            font-weight: 400;
+        }
+        .swiper-wrapper .swiper-slide .sub_content{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width:100%;
+            height: 150px;
+            position: absolute;
+            bottom: -200px;
+        }
+        
+        .swiper-wrapper .swiper-slide .sub_content >div{
+            width: 17%;
+            margin-right: 30px;
+            overflow: hidden;
+            height: 100%;
+        }
+        .swiper-wrapper .swiper-slide .sub_content > div .subimg{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 0px;
+            transition:all 0.5s;
+        }
+        .swiper-wrapper .swiper-slide .sub_content > div:hover .subimg{
+            transform: scale(1.2);
+        }
+       
+        /* 반응형 */
+        @media screen and (max-width:1024px) {
+            .swiper-wrapper .swiper-slide img { 
+            width: 50%; 
+            height: 430px;
+            border-radius: 25px;
+        }
+            .swiper-wrapper .swiper-slide .btn{
+            position:absolute;
+            top:-30px;
+            right:35%;
+            display: flex;
+            z-index: 18;
+        }
+            .swiper-wrapper .swiper-slide .textbox {
+            border-radius: 25px;
+            margin-left: 10px;
+            width: 40%; 
+            height: 430px;
+            color:#fff;
+            background-color: #3b3b3b;  
+            position: relative;
+            z-index: 17;
+        }
+        .swiper-wrapper .swiper-slide .textbox h1{
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .swiper-wrapper .swiper-slide .textbox p{
+            margin: 20px;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 300;
+        }
+        .swiper-wrapper .swiper-slide .textbox .detail {
+            margin: 20px;
+            line-height: 20px;
+            font-weight: 300;
+            font-size: 13px;
+        }
+        .swiper-wrapper .swiper-slide .textbox .detail span{
+            color:#ff8800;
+            font-weight: 400;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="/css/header.css">
+    <div id="header">
+        <div class="center">
+            <h1 class="logo"><a href="/"><img src="/img/logo2.png"></a></h1>
+            <ul class="gnb">
+                <li class="on"><a href="#"><span class="one">01. </span>home</a></li>
+                <li><a href="#"><span>02. </span>Proflie</li>
+                <li><a href="#"><span>03. </span>Portfolio</a></li>
+                <li><a href="#"><span>04. </span>Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="section1">
+        <div class="center">
+            <div class="main_left">
+                <h2 style="padding-bottom: 10px;" class="animated 1 flipInX delay-0.3s" >안녕하세요</h2>
+                <h1 class="animated 1 fadeInDown delay-1s">저는 프론트엔드 개발자</h1>
+                <h1 class="animated 1 fadeInDown delay-1s">
+                    <span>유여름</span> 입니다
+                </h1>
+                <h2 style="padding-top: 15px;" class="animated 1 fadeInDown delay-2s">사용자들의 편의성을 고려한 웹사이트를 개발합니다</h2>
+                <p class="animated 1 fadeInDown delay-3s">웹접근성, 웹표준을 준수하여 마크업을 작성합니다.</p>
+            </div>
+            <div class="main_right one">
+                <img class="animated infinite flash slower 1000s" style="animation-duration: 7s;" src="/img/visual_bg.png">
+            </div>
+        </div>
+    </div>
+    <div id="section2">
+        <div class="center">
+            <div class="profile_box">
+                <div class="profile_box_left">
+                    <div class="profile_box_left_text">
+                        <h1>유여름<span></span>Proflie</h1>
+                        <p>
+                            안녕하세요, 성장 중인 신입 프론트엔드 개발자 <span>유여름</span>입니다.<br>
+                            열정과 성실함으로 지속적인 성장을 위해 늘 학습하고 있습니다 :)
+                        </p>
+                        <p>함께 일하고 협업하는 기회를 소중히 여기며 연락 기다리고 있습니다. <br>
+                            더 많은 소통과 성장을 위해 이야기 나누고 싶습니다. 언제든 연락주세요!</p>
+                        <div class="left_box">
+                            <ul class="Profile">
+                                <li><span>e-mail : </span>saunogq2@naver.com</li>
+                                <li><span>github : </span><a href="https://github.com/summerryu" target="_blank" style="color: #ff8800;">https://github.com/summerryu</a></li>
+                                <li><span>t-story : </span><a href="https://saunogq.tistory.com/" target="_blank" style="color: #ff8800;">https://saunogq.tistory.com/</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile_box_right">
+                    <div class="profile_box_right_text">
+                        <h1>교육</h1>
+                        <ul class="study">
+                            <li>
+                                <p style="color:#ff8800; width:100%;">식음료조리계열 - 식음료조리과 전공</p>
+                                <ul class="study_group">
+                                    <li>영남이공대학교(졸업)</li>
+                                    <li>2014.03 ~ 2016.11</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p style="color:#ff8800; width:100%;">웹퍼블리셔, 프론트엔드 개발과정</p>
+                                <ul class="study_group">
+                                    <li>더조은컴퓨터아트학원</li>
+                                    <li>2023.02 ~ 2023.07</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h1>기술 스택</h1>
+                        <ul class="skil">
+                            <li>
+                                <p>Language</p>
+                                <ul class="skil_detail">
+                                    <li>JavaScript</li>
+                                    <li>jQuery</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Framework/Library</p>
+                                <ul class="skil_detail">
+                                    <li>Vue</li>
+                                    <li>React</li>
+                                    <li>NodeJs</li>
+                                    <li>Express</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>MarkUp</p>
+                                <ul class="skil_detail">
+                                    <li>HTML5</li>
+                                    <li>CSS</li>
+                                    <li>SCSS</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Database</p>
+                                <ul class="skil_detail">
+                                    <li>MongoDB</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Tool</p>
+                                <ul class="skil_detail">
+                                    <li>Github</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section3">
+        <div class="center">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" >
+                  <div class="swiper-slide">
+                    <img class="main_img" src="/img/buyeo_top.png"/>
+                    <div class="click_ikon">
+                        <img class="animated infinite  pulse" src="/img/click.png">
+                    </div>
+                    <div class="click_text">
+                        <p>click!</p>
+                    </div>
+                    <ul class="btn">
+                        <li class="change"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <div class="textbox">
+                        <h1 style=" margin: 30px 20px;">부여문화재야행</h1>
+                        <div class="text_list change">
+                            <p>해당 포트폴리오 주소 : <a href="#"  target="_blank" style="color: #ff8800;">추후 추가</a></p>
+                            <ul class="detail">
+                                <li>작업소요기간 : 2주</li>
+                                <li>Github :<a style="color: #ff8800;" href=">https://github.com/summerryu/buyeo" target="_blank">https://github.com/summerryu/buyeo</a></li>
+                                <li>부여문화재야행 공식 홈페이지의 디자인, 기능 및 콘텐츠를 참고하여 제작되었습니다</li>
+                                <li>이 포트폴리오 웹사이트는 <span>벤치마킹</span>을 통해 원본 사이트의 디자인 요소, 레이아웃, 색상 선택, 그래픽 및 이미지 사용 등을 참고하였습니다.</li>
+                                <li>또한, 부여문화재야행 공식 홈페이지에서 제공하는 기능들을 고려하여 유사한 기능을 구현하였습니다.</li>
+                                <li>자세한 내용은 링크를 통해 확인하실 수 있습니다.</li>
+                            </ul>
+                        </div>
+                        <div class="text_list">
+                            <ul class="detail">
+                                <li>22개의 뷰(views) 파일과 18개의 CSS 파일로 구성됩니다.</li>
+                                <li><span>Express, MongoDB, Passport</span> 등 라이브러리 사용합니다.</li>
+                                <li>사용 언어: <span>HTML5, 바닐라 JavaScript</span>를 사용합니다.</li>
+                                <li>서버 측 템플릿 엔진으로 <span>EJS</span>를 사용합니다.</li>
+                            </ul>
+                            <p>부여문화재야행은 <span>회원가입</span>과 <span>게시판</span> 기능을 구현하며, 
+                                SCSS 파일로 페이지 스타일과 레이아웃을 조정합니다. 
+                                <span>Express</span>와 <span>MongoDB</span>를 사용하여 서버와 <span>데이터베이스</span>를 연결하고, 
+                                EJS를 통해 동적인 페이지를 생성하고 데이터를 표시합니다.</p>
+                                <p>또한, 부여문화재야행은 반응형으로 설계되어 있어 태블릿 버전과 모바일 버전에서도 사용할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="sub_content">
+                        <div class="sizeUP">
+                            <img class="subimg" src="/img/buyeo_top.png"/>
+                        </div>
+                        <div class="sizeUP">
+                            <img class="subimg" src="/img/all_buyeo3.png">
+                        </div>
+                        <div class="sizeUP">
+                            <img class="subimg" src="/img/all_buyeo.png">
+                        </div>
+                        <div class="sizeUP">
+                            <img class="subimg" src="/img/all_buyeo2.png">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="click_ikon">
+                        <img class="animated infinite  pulse" src="/img/click.png">
+                    </div>
+                    <div class="click_text">
+                        <p>click!</p>
+                    </div>
+                    <ul class="btn">
+                        <li class="change"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <img class="main_img2" src="/img/nabi_top.png"/>
+                    <div class="textbox">
+                        <h1 style=" margin: 30px 20px;">복나비 한복</h1>
+                        <div class="text_list change">
+                            <p>해당 포트폴리오 주소 : <a href="#"  target="_blank" style="color: #ff8800">추후 추가</a></p>
+                            <ul class="detail">
+                                <li>작업소요기간 : 2주</li>
+                                <li>Github :<a style="color: #ff8800;" href="https://github.com/summerryu/summers" target="_blank">https://github.com/summerryu/summers</a></li>
+                                <li>복나비 소성희 한복 공식 홈페이지의 디자인, 기능 및 콘텐츠를 참고하여 제작되었습니다</li>
+                                <li>이 포트폴리오 웹사이트는 <span>벤치마킹</span>을 통해 원본 사이트의 디자인 요소, 레이아웃, 색상 선택, 그래픽 및 이미지 사용 등을 참고하였습니다.</li>
+                                <li>주요 <span>수정사항</span>으로는 서브페이지의 디자인과 메뉴 등 세부 디자인을 조정하였으며, 게시판 기능을 추가하여
+                                    <span>예약 시스템</span>을 좀 더 편하게 이용할 수 있는 기능을 구현하였습니다.</li>
+                                <li>자세한 내용은 링크를 통해 확인하실 수 있습니다.</li>
+                            </ul>
+                        </div>
+                        <div class="text_list">
+                            <ul class="detail">
+                                <li>15개의 뷰(views) 파일과 15개의 CSS 파일로 구성됩니다.</li>
+                                <li><span>Express, MongoDB </span> 등 라이브러리 사용합니다.</li>
+                                <li>사용 언어: <span>HTML5, 바닐라 JavaScript, 제이쿼리</span>를 사용합니다.</li>
+                                <li>서버 측 템플릿 엔진으로 <span>EJS</span>를 사용합니다.</li>
+                            </ul>
+                            <p>복나비 한복은 <span>게시판</span> 기능을 넣은 예약게시판 구현되어있습니다.
+                                SCSS 파일로 페이지 스타일과 레이아웃을 조정합니다. 
+                                <span>Express</span>와 <span>MongoDB</span>를 사용하여 서버와 <span>데이터베이스</span>를 연결하고, 
+                                EJS를 통해 동적인 페이지를 생성하고 데이터를 표시합니다.
+                            </p>
+                                <p>또한, 복나비 한복은 반응형으로 설계되어 있어 태블릿 버전과 모바일 버전에서도 사용할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="sub_content">
+                        <div class="sizeUP2">
+                            <img class="subimg" src="/img/nabi_top.png">
+                        </div>
+                        <div class="sizeUP2">
+                            <img class="subimg" src="/img/all_nabi1.png">
+                        </div>
+                        <div class="sizeUP2">
+                            <img class="subimg" src="/img/all_nabi2.png">
+                        </div>
+                        <div class="sizeUP2">
+                            <img class="subimg" src="/img/all_nabi3.png">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="click_ikon">
+                        <img class="animated infinite pulse" src="/img/click.png">
+                    </div>
+                    <div class="click_text">
+                        <p>click!</p>
+                    </div>
+                    <ul class="btn">
+                        <li class="change"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <img class="main_img3" src="/img/bok_top.png"/>
+                    <div class="textbox">
+                        <h1 style=" margin: 30px 20px;">문화재청 경복궁</h1>
+                        <div class="text_list change">
+                            <p>해당 포트폴리오 주소 : <a href="#"  target="_blank" style="color: #ff8800;">추후 추가</a></p>
+                            <ul class="detail">
+                                <li>작업소요기간 : 2주</li>
+                                <li>Github :<a style="color: #ff8800;" href="https://github.com/summerryu/bokboko" target="_blank">https://github.com/summerryu/bokbok</a></li>
+                                <li>문화재청 경복궁 공식 홈페이지의 디자인, 기능 및 콘텐츠를 참고하여 제작되었습니다</li>
+                                <li>이 포트폴리오 웹사이트는 <span>벤치마킹</span>을 통해 원본 사이트의 디자인 요소, 레이아웃, 색상 선택, 그래픽 및 이미지 사용 등을 참고하였습니다.</li>
+                                <li>주요 <span>수정사항</span>으로는 서브페이지의 디자인과 메뉴 등 세부 디자인을 조정하였으며, 
+                                    <span>탭메뉴</span> 형식을 이용하여 서브페이지 화면전환을 구현했습니다. </li>
+                                <li>자세한 내용은 링크를 통해 확인하실 수 있습니다.</li>
+                            </ul>
+                        </div>
+                        <div class="text_list">
+                            <ul class="detail">
+                                <li>10개의 뷰(views) 파일과 11개의 CSS 파일로 구성됩니다.</li>
+                                <li><span>Express, MongoDB</span> 등 라이브러리 사용합니다.</li>
+                                <li>사용 언어: <span>HTML5, 바닐라 JavaScript</span>를 사용합니다.</li>
+                                <li>서버 측 템플릿 엔진으로 <span>EJS</span>를 사용합니다.</li>
+                            </ul>
+                            <p>문화재청은 <span>게시판</span> 기능을 구현하며, 
+                                SCSS 파일로 페이지 스타일과 레이아웃을 조정합니다. 
+                                <span>Express</span>와 <span>MongoDB</span>를 사용하여 <span>서버</span>와 <span>데이터베이스</span>를 연결하고, 
+                                EJS를 통해 동적인 페이지를 생성하고 데이터를 표시합니다.</p>
+                            <p>각 컨트롤러별로 페이지가 구축되어 있고, 컨트롤러 별 서브페이지는 탭 메뉴 형식으로 구현되어 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="sub_content">
+                        <div class="sizeUP3">
+                            <img class="subimg" src="/img/bok_top.png">
+                        </div>
+                        <div class="sizeUP3">
+                            <img class="subimg" src="/img/all_bok.png">
+                        </div>
+                        <div class="sizeUP3">
+                            <img class="subimg" src="/img/all_bok2.png">
+                        </div>
+                        <div class="sizeUP3">
+                            <img class="subimg" src="/img/all_bok3.png">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="click_ikon">
+                        <img class="animated infinite pulse" src="/img/click.png">
+                    </div>
+                    <div class="click_text">
+                        <p>click!</p>
+                    </div>
+                    <ul class="btn">
+                        <li class="change"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <img class="main_img4" src="/img/test.png"/>
+                    <div class="textbox">
+                        <h1 style=" margin: 30px 20px;">아재입맛 테스트</h1>
+                        <div class="text_list change">
+                            <p>해당 포트폴리오 주소 : <a href="#"  target="_blank" style="color: #ff8800;">추후 추가</a></p>
+                            <ul class="detail">
+                                <li>작업소요기간 : 2일</li>
+                                <li>Github :<a style="color: #ff8800;" href="https://github.com/summerryu/testform" target="_blank">https://github.com/summerryu/testform</a></li>
+                                <li>이 사이트는<span>checked</span>값을 이용한 스크립트로 제작되었습니다.</li>
+                                <li>이 포트폴리오 웹사이트는 직접 디자인을 구상하였습니다. sns상 유명한 테스트 설문지를 참고하였습니다. js를 이용하여 데이터를 세팅하였고. 체크 결과값에 따라 마지막 결과화면이 다르게 출력됩니다.</li>
+                                <li>자세한 내용은 링크를 통해 확인하실 수 있습니다.</li>
+                            </ul>
+                        </div>
+                        <div class="text_list">
+                            <ul class="detail">
+                                <li>2개의 뷰(views) 파일과 2개의 CSS 파일로 구성됩니다.</li>
+                                <li><span>Express</span> 라이브러리 사용합니다.</li>
+                                <li>사용 언어: <span>HTML5, 바닐라 JavaScript</span>를 사용합니다.</li>
+                                <li>서버 측 템플릿 엔진으로 <span>EJS</span>를 사용합니다.</li>
+                            </ul>
+                            <p>아재입맛 테스트폼은 세팅된 데이터를 기반으로 js가 구현되며,
+                                SCSS 파일로 페이지 스타일과 레이아웃을 조정합니다. 
+                                <span>Express</span>를 사용하여 <span>서버</span>를 연결하였습니다.
+                                js내에서 데이터값을 수정하면 다른 유형의 테스트로도 활용 할 수 있습니다.
+                            </p>
+                            <p>메인 페이지와 테스트폼 페이지 2개의 ejs view 파일로 구성 되어있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="sub_content">
+                        <div class="sizeUP4">
+                            <img class="subimg" src="/img/test.png">
+                        </div>
+                        <div class="sizeUP4">
+                            <img class="subimg" src="/img/test2.png">
+                        </div>
+                        <div class="sizeUP4">
+                            <img class="subimg" src="/img/test3.png">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="click_ikon">
+                        <img class="animated infinite pulse" src="/img/click.png">
+                    </div>
+                    <div class="click_text">
+                        <p>click!</p>
+                    </div>
+                    <ul class="btn">
+                        <li class="change"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <img class="main_img5" src="/img/port.png"/>
+                    <div class="textbox">
+                        <h1 style=" margin: 30px 20px;">포트폴리오</h1>
+                        <div class="text_list change">
+                            <p>해당 포트폴리오 주소 : <a href="#"  target="_blank" style="color: #ff8800;">추후 추가</a></p>
+                            <ul class="detail">
+                                <li>작업소요기간 : 7일 ~ ing</li>
+                                <li>Github :<a style="color: #ff8800;" href="https://github.com/summerryu/Portfolio" target="_blank">https://github.com/summerryu/Portfolio</a></li>
+                                <li>이 포트폴리오는 직접 디자인하고 화면을 구상하여 제작되었습니다.</li>
+                                <li>다양한 <span>자체제작 스크립트</span>로 구성되어있습니다.</li>
+                                <li><span>swiper</span>를 이용한 슬라이드 기능이 구현되어있으며, 이를 통해 쉽게 콘텐츠를 슬라이드 하여 전환할 수 있습니다. 또한 이 웹사이트는 <span>섹션 이동</span>이 발생할 때 마다 디자인이 변화합니다. 각 섹션을 고유한 컬러의 디자인으로 꾸몄습니다.</li>
+                                <li>자세한 내용은 해당 페이지에서 확인가능합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="text_list">
+                            <ul class="detail">
+                                <li>2개의 뷰(views) 파일과 3개의 CSS 파일로 구성됩니다.</li>
+                                <li><span>Express, MongoDB</span> 등 라이브러리 사용합니다.</li>
+                                <li>사용 언어: <span>HTML5, 바닐라 JavaScript , 제이쿼리</span>를 사용합니다.</li>
+                                <li>서버 측 템플릿 엔진으로 <span>EJS</span>를 사용합니다.</li>
+                            </ul>
+                            <p>포트폴리오 페이지는 <span>데이터베이스</span>를 이용하여 <span>contact</span> 기능을 구현하며, 
+                                SCSS 파일로 페이지 스타일과 레이아웃을 조정합니다. 
+                                <span>Express</span>와 <span>MongoDB</span>를 사용하여 <span>서버</span>와 <span>데이터베이스</span>를 연결하고, 
+                                EJS를 통해 동적인 페이지를 생성하고 데이터를 표시합니다.</p>
+                        </div>
+                    </div>
+                    <div class="sub_content">
+                        <div class="sizeUP5">
+                            <img class="subimg" src="/img/port.png">
+                        </div>
+                        <div class="sizeUP5">
+                            <img class="subimg" src="/img/port2.png">
+                        </div>
+                        <div class="sizeUP5">
+                            <img class="subimg" src="/img/port3.png">
+                        </div>
+                        <div class="sizeUP5">
+                            <img class="subimg" src="/img/port4.png">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section4">
+        <div class="center">
+            <div class="contact_box">
+                <div class="left_box">
+                    <div class="contact_img_box">
+                        <img src="/img/titlecat.png">
+                    </div>
+                </div>
+                <div class="right_box">
+                    <h1>Thank you</h1>
+                    <p>페이지를 방문해주셔서 감사합니다</p>
+                    <p>확인 후 연락 드리겠습니다 !</p>
+                    <form id="contact" action="/contactdb" method="post">
+                        <label for="inputName">
+                            <input type="text" name="name" id="inputName" placeholder="Name">
+                        </label>
+                        <label for="inputemail">
+                            <input type="text" name="email" id="inputemail" placeholder="E-mail">
+                        </label>
+                        <label for="inputmessage">
+                            <textarea id="inputmessage" name="message" placeholder="Message"></textarea>
+                        </label>
+                        <button type="submit">전송</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        });
+    </script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+* { margin:0; padding:0; }
+h1,h2,h3,h4,h5,h6 { font-size: 100%; font-weight: normal;}
+a { text-decoration: none;  }
+ul,li,ol { list-style: none; }
+body { line-height: 1; 
+    font-family: 'NanumSquareNeo-Variable';
+    @font-face {
+        font-family: 'NanumSquareNeo-Variable';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+ }
+img,video { vertical-align: top; }

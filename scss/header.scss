@@ -1,0 +1,119 @@
+#header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    z-index: 99;
+    .center{
+        height: 130px;
+        align-items: center;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        .logo{
+            filter: invert(100%);
+            img{
+                width: 50%;
+                height: 20%;
+            }
+        }
+        .gnb{
+            display: flex;
+            li{
+                margin: 0 20px;
+                font-size: 14px;
+                a{
+                    color:#e4e4e4;
+                    transition: all 0.3s;
+                    .one{
+                        position: relative;
+                        font-weight: normal;
+                        color:#ff8800;
+                        font-style: 12px;
+                    }
+                    .two{
+                        position: relative;
+                        font-weight: normal;
+                        color:#ff8800;
+                        
+                        font-style: 12px;
+                    }
+                    .three{ 
+                        position: relative;
+                        font-weight: normal;
+                        color:#ff8800;
+                        font-style: 12px;
+                    }
+                    .four{
+                        font-style: 12px;
+                        position: relative;
+                        font-weight: normal;
+                        color:#ff8800;
+                    }
+                }
+            }
+            li.on{
+                a{
+                    .one{
+                        &::before{
+                            content: "";
+                            top:-62%;
+                            right:10px;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            position: absolute;
+                            background: radial-gradient(circle, #ff8800 0%, rgba(0,0,0,1) 100%);
+                            animation: lookonpage 0.4s linear infinite alternate;
+                        }
+                    }
+                    .two{
+                        &::before{
+                            content: "";
+                            top:-62%;
+                            right:10px;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            position: absolute;
+                            background: radial-gradient(circle, #ff8800 0%, rgba(0,0,0,1) 100%);
+                            animation: lookonpage 0.4s linear infinite alternate;
+                        }
+                    }
+                    .three{
+                        &::before{
+                            content: "";
+                            top:-62%;
+                            right:10px;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            position: absolute;
+                            background: radial-gradient(circle, #ff8800 0%, rgba(0,0,0,1) 100%);
+                            animation: lookonpage 0.4s linear infinite alternate;
+                        }
+                    }
+                    .four{
+                        &::before{
+                            content: "";
+                            top:-62%;
+                            right:10px;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            position: absolute;
+                            background: radial-gradient(circle, #ff8800 0%, rgba(0,0,0,1) 100%);
+                            animation: lookonpage 0.4s linear infinite alternate;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes lookonpage {
+    0% { top: -62%; }
+    100% { top: -92%; }
+}
