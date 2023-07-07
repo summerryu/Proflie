@@ -550,7 +550,8 @@
                         width: 100%;
                         height: 100%;
                         img{
-                            max-width: 100%;
+                            width: 100%;
+                            height: 100%;
                         }
                     }
                     .sub_content{
@@ -566,6 +567,8 @@
                             .subimg{
                                 width: 100%;
                                 height: 147px;
+                                position: relative;
+                                top:-10px;
                             }
                         }
                         .sub_img_change_btn{

@@ -533,7 +533,8 @@
     height: 100%;
   }
   #section3_mo .portfolio_list .portfolio .portfolio_left .main_img img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
   }
   #section3_mo .portfolio_list .portfolio .portfolio_left .sub_content {
     position: relative;
@@ -550,6 +551,8 @@
   #section3_mo .portfolio_list .portfolio .portfolio_left .sub_content .sub_slide .subimg {
     width: 100%;
     height: 147px;
+    position: relative;
+    top: -10px;
   }
   #section3_mo .portfolio_list .portfolio .portfolio_left .sub_content .sub_img_change_btn {
     width: 100%;
