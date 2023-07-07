@@ -304,12 +304,32 @@
     flex-wrap: wrap;
     background-color: #202020;
     overflow: hidden;
+    position: relative;
     .center{
         display: flex;
         align-items: center;
         height: 100vh;
         width: 100%;
         flex-wrap: wrap;
+    }
+    .title{
+        color:#ffffff;
+        top:100px;
+        position: absolute;
+        font-size: 30px;
+        font-family: 'BookkMyungjo-Bd';
+        font-weight: 400;
+        letter-spacing: 2px;
+        @font-face {
+            font-family: 'BookkMyungjo-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+        h1{
+            position: relative;
+            width: 100%;
+        }
     }
 }
 
@@ -333,8 +353,16 @@
             color:#ff8800;
             font-size: 30px;
             font-weight: 800;
-            letter-spacing: 2px;
             margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-family: 'BookkMyungjo-Bd';
+            @font-face {
+                font-family: 'BookkMyungjo-Bd';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+                font-weight: 400;
+                font-style: normal;
+            }
         }
         p{
             color:#eeeeee;
@@ -355,5 +383,73 @@
     to {
         opacity: 1;
         transform: translateZ(0);
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #section2{
+        .center{
+            .profile_box{
+                width: 85%;
+                height: 50%;
+                background-color: #3b3b3b;
+                border-radius: 30px;
+                display: flex;
+                .profile_box_left{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .profile_box_left_text{
+                        .left_box{
+                            .Profile{
+                                li{
+                                    font-size: 14px;
+                                    line-height: 40px;
+                                    margin-left: 20px;
+                                    color:#eeeeee;
+                                    list-style-type: "\1F44D  ";
+                                    span{
+                                        color:#eeeeee;
+                                    }
+                                    a{
+                                        color:#eeeeee;
+                                        position: relative;
+                                        &:hover{
+                                            &::after{
+                                                content: "";
+                                                position: absolute;
+                                                background-color: #ff8800;
+                                                width: 100%;
+                                                height: 1px;
+                                                left: 0;
+                                                bottom: -3px;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                            &::after{
+                                left: 20px;
+                            }
+                            &::before{
+                                left: 170px;
+                            }
+                        }
+                    }
+                }
+                .profile_box_right{
+                    border-left: 1px solid #5c5c5c;
+                }
+            }
+        }
+    }
+    #section3{
+        display: none;
+    }
+    #section3_mo{
+        
     }
 }
